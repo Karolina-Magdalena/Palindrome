@@ -1,0 +1,60 @@
+#include <iostream>
+
+using namespace std;
+
+int y,n;
+int licznik;
+
+int main()
+{
+    cin>>y;
+    for (int i=1; i<=y; i++)
+    {
+        cin>>n;
+        licznik=0;
+        for (;;)
+        {
+        if (n<10) {cout<<n<<" "<<licznik<<endl;
+        break;}
+
+        if (n<100&&n>=10)
+        {
+        if(n/10==n%10) {cout<<n<<" "<<licznik<<endl;
+        break;}
+        else {n=n+((n%10*10)+n/10);
+        licznik++;
+        continue;}
+        }
+
+        if (n>=100&&n<1000)
+        {
+        if (n/100==n%10) {cout<<n<<" "<<licznik<<endl;
+        break;}
+        else {n=n+((n%10*100)+((n/10)%10*10)+(n/100));
+        licznik++;
+        continue;}
+        }
+
+        if (n>=1000&&n<10000)
+        {
+        if ((n/1000==n%10)&&((n/100)%10==(n/10)%10)) {cout<<n<<" "<<licznik<<endl;
+        break;}
+        else {n=n+(((n%10)*1000)+(((n/10)%10)*100)+(((n/100)%10)*10)+(n/1000));
+        licznik++;
+        continue;}
+        }
+
+        if (n>=10000)
+        {
+        if ((n/10000==n%10)&&((n/1000)%10==(n/10)%10)) {cout<<n<<" "<<licznik<<endl;
+        break;}
+        else {n=n+(((n%10)*10000)+(((n/10)%10)*1000)+(((n/100)%10)*100)+(((n/1000)%10)*10)+(n/10000));
+        licznik++;
+        continue;}
+        }
+        }
+
+    }
+    return 0;
+
+}
